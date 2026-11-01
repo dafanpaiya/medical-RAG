@@ -1,0 +1,102 @@
+# ==============================================================================
+# Environment Variables & Secrets (MANDATORY EXCLUSION)
+# ==============================================================================
+.env
+*.env
+!.env.example
+
+# ==============================================================================
+# Python & Virtual Environments
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# Testing & Code Quality Tools
+# ==============================================================================
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================================================================
+# IDE & Operating System Files
+# ==============================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# ==============================================================================
+# Application Runtime Logs & Ephemeral State
+# ==============================================================================
+logs/
+*.log
+*.pid
+data/*.jsonl
+data/incremental/*.jsonl
+
+# ==============================================================================
+# Large Source Data & Copyrighted Documents (MANDATORY EXCLUSION)
+# Do NOT commit copyrighted Chinese Pharmacopoeia (ChP) raw PDFs (approx 1.65 GB).
+# See docs/DATASET_AND_ASSET_GUIDE.md for local setup and compliance guidelines.
+# ==============================================================================
+data/raw/
+*.pdf
+
+# ==============================================================================
+# Heavy OCR Caches & Intermediate Image Renderings (>200 MB)
+# ==============================================================================
+data/ocr_cache/
+data/processed/
+**/*_cache/
+**/rendered_pages/
+**/raw_ocr/
+*.crdownload
+
+# ==============================================================================
+# Heavy Staging Artifacts & Intermediate Candidate Vector Indexes (>50 MB each)
+# Whitelist essential governance contracts, acceptance reports, and manifests.
+# ==============================================================================
+data/staging/*
+!data/staging/cleanup/
+data/staging/cleanup/*
+!data/staging/cleanup/deletion_manifest.csv
+!data/staging/phase61/
+data/staging/phase61/*
+!data/staging/phase61/PHASE61_FINAL_ACCEPTANCE_REPORT.md
+!data/staging/p1_3_demo_exploratory_pilot/
+data/staging/p1_3_demo_exploratory_pilot/*
+!data/staging/p1_3_demo_exploratory_pilot/TASK_EXECUTION_CONTRACT_V7.md
+!data/staging/p1_3_demo_exploratory_pilot/TASK_EXECUTION_CONTRACT_V7.md.sha256
+# Phase54 approved runtime knowledge base
+!data/staging/phase54_ocr_repair/
+data/staging/phase54_ocr_repair/*
+!data/staging/phase54_ocr_repair/unified_kb_candidate_phase54.json
+!data/staging/phase54_ocr_repair/page_and_metadata_conflicts.json
+!data/staging/phase54_ocr_repair/expert_verified_delta_kb.json
+# Local-only configuration
+.claude/settings.local.json
+
+# Local backups
+data/snapshots/
+
+# Local-only configuration
+.claude/settings.local.json
+
+# Local backups
+data/snapshots/

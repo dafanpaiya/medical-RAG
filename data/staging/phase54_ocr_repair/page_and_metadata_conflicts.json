@@ -1,0 +1,1729 @@
+{
+  "artifact": "page_and_metadata_conflicts",
+  "inputs": {
+    "enterprise_kb": "data/enterprise_regulatory_kb.json",
+    "chp_projection": "data/staging/phase43_5_16_demo_citation_projection/phase43_5_16_chp2025_candidate_citation_ready.json",
+    "page_manifest": "data/staging/candidate_kb/master_page_coordinate_manifest.json"
+  },
+  "chp_page_mapping": {
+    "manifest_total_physical_pages": 4353,
+    "manifest_mapped_printed_pages": 4063,
+    "manifest_unresolved_pages": 54,
+    "manifest_overall_coverage_pct": 93.34,
+    "manifest_mapping_status_counts": {
+      "UNNUMBERED_FRONT_MATTER": 109,
+      "TABLE_OF_CONTENTS": 34,
+      "SECTION_DIVIDER": 3,
+      "MAPPED": 4063,
+      "BLANK_PAGE": 2,
+      "BACK_MATTER_INDEX": 88,
+      "UNRESOLVED_MAPPING": 54
+    },
+    "manifest_validation_counts": {
+      "VERIFIED": 4299,
+      "UNRESOLVED": 54
+    },
+    "included_chp_docs": 11852,
+    "included_chp_mapped_verified": 11852,
+    "included_chp_unresolved": 0,
+    "unresolved_manifest_records": [
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 548,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 549,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 550,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 551,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 552,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 553,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 554,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 555,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 556,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 557,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 558,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 559,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 560,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 561,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 562,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 563,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 564,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 565,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 566,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 567,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 568,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 569,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 570,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 571,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 572,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 573,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 574,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 575,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 576,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 577,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 578,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 579,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 580,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 581,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 582,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 583,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 584,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 585,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 586,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 587,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 588,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 589,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 590,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 591,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 592,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 593,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 594,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 595,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 596,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 597,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 598,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 599,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 600,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      },
+      {
+        "volume": "Volume_III",
+        "volume_number": 3,
+        "physical_page_1idx": 601,
+        "printed_page_number": null,
+        "mapping_status": "UNRESOLVED_MAPPING",
+        "validation_status": "UNRESOLVED",
+        "notes": "No empirical offset validation in existing historical artifacts for P548-P601. Extrapolation strictly prohibited per Phase 42B specification."
+      }
+    ],
+    "no_invented_printed_pages": true,
+    "page_fields": "citation-facing page/pages set to printed; physical_page_1idx and physical_pages preserve physical index"
+  },
+  "enterprise_metadata_conflicts": {
+    "volume_version_conflicts": [
+      {
+        "doc_id": "chunk_chp_2025_vol1_chenpi_monograph_chp_vol1_chenpi_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_renshen_monograph_chp_vol1_renshen_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_huanglian_monograph_chp_vol1_huanglian_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_gancao_monograph_chp_vol1_gancao_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_angong_niuhuang_wan_chp_vol1_angong_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_purified_water_chp_2025_vol2_water_sec1_monograph_specs",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_purified_water_chp_2025_vol2_water_sec2_conductivity_toc_microbial",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_wfi_and_sterile_water_chp_2025_vol2_wfi_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_wfi_and_sterile_water_chp_2025_vol2_wfi_sec2_sterile_wfi",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_metformin_monograph_chp_vol2_metformin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_amoxicillin_monograph_chp_vol2_amoxicillin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_atorvastatin_monograph_chp_vol2_atorvastatin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_aspirin_monograph_chp_vol2_aspirin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_paracetamol_monograph_chp_vol2_paracetamol_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_ibuprofen_monograph_chp_vol2_ibuprofen_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_saline_and_glucose_injections_chp_vol2_saline_glucose_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_general_chapters_biologics_chp_vol3_sec1_general_principles_and_viral_safety",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-General",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_human_albumin_monograph_chp_vol3_albumin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_recombinant_insulin_monograph_chp_vol3_insulin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_trastuzumab_monograph_chp_vol3_trastuzumab_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "volume_version_conflict_count": 20,
+    "pages_eq_1_docs": [
+      {
+        "doc_id": "chunk_chp_2025_vol1_general_chapter_0212_tcm_inspection_chp_vol1_0212_sec1_general_inspection",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0212",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_chenpi_monograph_chp_vol1_chenpi_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_renshen_monograph_chp_vol1_renshen_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_huanglian_monograph_chp_vol1_huanglian_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_gancao_monograph_chp_vol1_gancao_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol1_angong_niuhuang_wan_chp_vol1_angong_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol1-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_purified_water_chp_2025_vol2_water_sec1_monograph_specs",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_wfi_and_sterile_water_chp_2025_vol2_wfi_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_metformin_monograph_chp_vol2_metformin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_amoxicillin_monograph_chp_vol2_amoxicillin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_atorvastatin_monograph_chp_vol2_atorvastatin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_aspirin_monograph_chp_vol2_aspirin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_paracetamol_monograph_chp_vol2_paracetamol_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_ibuprofen_monograph_chp_vol2_ibuprofen_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol2_saline_and_glucose_injections_chp_vol2_saline_glucose_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol2-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_general_chapters_biologics_chp_vol3_sec1_general_principles_and_viral_safety",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-General",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_human_albumin_monograph_chp_vol3_albumin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_recombinant_insulin_monograph_chp_vol3_insulin_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol3_trastuzumab_monograph_chp_vol3_trastuzumab_sec1_monograph",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol3-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0101_tablets_chp_vol4_0101_sec1_disintegration_friability_uniformity",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0101",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0102_injections_chp_vol4_0102_sec1_particulate_sterility_endotoxins",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0102",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0261_chp_2025_vol4_0261_sec1_water_types_and_systems",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0261",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_guideline_9209_chp_2025_vol4_9209_sec1_alert_action_levels",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-9209",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0512_hplc_chp_vol4_0512_sec1_system_suitability",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0512",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0861_solvents_chp_vol4_0861_sec1_classification_and_limits",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0861",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_general_chapter_0931_dissolution_chp_vol4_0931_sec1_apparatus_and_f2",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-0931",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_chp_2025_vol4_guideline_9014_stability_chp_vol4_9014_sec1_testing_conditions",
+        "physical_volume": "四部",
+        "version": "2025-ChP-Vol4-9014",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_device_software_2022_official_nmpa_soft_sec1_scope_and_safety_levels",
+        "physical_volume": "四部",
+        "version": "2022-NMPA-CMDE-No9",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_cybersecurity_2022_official_nmpa_cyber_sec1_22_capabilities",
+        "physical_volume": "四部",
+        "version": "2022-NMPA-CMDE-No7",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_ai_medical_device_2022_2023_nmpa_ai_sec1_data_governance_and_algorithm",
+        "physical_volume": "四部",
+        "version": "2022-NMPA-No14_2023-No38",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_state_council_order_739_nmpa_739_sec1_classification_and_registration",
+        "physical_volume": "四部",
+        "version": "State-Council-Order-739",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_china_gmp_2010_sterile_annex_gmp_sterile_sec1_cleanroom_particulates",
+        "physical_volume": "四部",
+        "version": "GMP-2010-Annex-1",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_be_consistency_evaluation_official_nmpa_be_sec1_rld_and_statistics",
+        "physical_volume": "四部",
+        "version": "NMPA-BE-Consistency-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_tcm_classification_and_evidence_official_nmpa_tcm_sec1_four_classes_and_three_in_one",
+        "physical_volume": "四部",
+        "version": "NMPA-TCM-2020-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_gcp_2020_clinical_trials_official_nmpa_gcp_sec1_ethics_and_sae_reporting",
+        "physical_volume": "四部",
+        "version": "NMPA-NHC-GCP-2020",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_nmpa_overview_mandate_centers_official_nmpa_overview_sec1_mandate_and_functions",
+        "physical_volume": "四部",
+        "version": "NMPA-Overview-Statutory-2024",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_cybersecurity_guidance_2023_official_fda_cyber_sec1_524b_and_threat_modeling",
+        "physical_volume": "四部",
+        "version": "FDA-2023-Final-Cybersecurity",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_device_software_functions_2023_official_fda_soft_sec1_basic_vs_enhanced",
+        "physical_volume": "四部",
+        "version": "FDA-2023-Final-Software-Functions",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_qmsr_iso13485_2024_2026_official_fda_qmsr_sec1_harmonization_and_scope",
+        "physical_volume": "四部",
+        "version": "FDA-QMSR-Final-Rule-2024",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_21cfr_part11_official_fda_part11_sec1_controls_and_audit_trail",
+        "physical_volume": "四部",
+        "version": "21-CFR-Part-11-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_21cfr_part211_cgmp_official_fda_211_sec1_subparts_c_d_j",
+        "physical_volume": "四部",
+        "version": "21-CFR-Part-211-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_21cfr_part312_part314_ind_nda_official_fda_312_sec1_ind_30day_and_safety_alerts",
+        "physical_volume": "四部",
+        "version": "21-CFR-Part-312-314-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_fda_overview_mandate_centers_official_fda_overview_sec1_mandate_and_scope",
+        "physical_volume": "四部",
+        "version": "FDA-Overview-Statutory-2024",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_eu_mdr_2017_745_rule_11_official_mdr_rule11_sec1_classification_rules",
+        "physical_volume": "四部",
+        "version": "EU-MDR-2017-745-MDCG-2019-11",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_ich_q9_r1_quality_risk_management_official_ich_q9_sec1_principles_and_formality",
+        "physical_volume": "四部",
+        "version": "ICH-Q9-R1-Official-2023",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_ich_q2_r2_analytical_validation_official_ich_q2_sec1_validation_parameters",
+        "physical_volume": "四部",
+        "version": "ICH-Q2-R2-Official-2023",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_ich_q10_pharmaceutical_quality_system_official_ich_q10_sec1_lifecycle_and_enablers",
+        "physical_volume": "四部",
+        "version": "ICH-Q10-Official",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "doc_id": "chunk_ich_q3d_r2_elemental_impurities_official_ich_q3d_sec1_classes_and_pde_table",
+        "physical_volume": "四部",
+        "version": "ICH-Q3D-R2-Official-2022",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "pages_eq_1_count": 48,
+    "docs_with_unmapped_page": [
+      {
+        "doc_id": "chunk_chp_2025_master_four_volumes_architecture",
+        "physical_volume": "四部全卷",
+        "version": "2025-ChP-Full-Official",
+        "unmapped_pages": [
+          1,
+          2
+        ],
+        "resolved_volume_guess": null
+      }
+    ],
+    "docs_with_unmapped_page_count": 1,
+    "note": "Enterprise records are copied unchanged; these conflicts are pre-existing and were not repaired or reinterpreted."
+  },
+  "authority_conflicts": [
+    {
+      "entity": "纯化水",
+      "enterprise": [
+        {
+          "doc_id": "chunk_chp_2025_vol2_purified_water_master_chp_2025_vol2_water_sec1_monograph_specs",
+          "pages": [
+            782
+          ],
+          "physical_volume": "二部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Chemical_Monograph"
+        },
+        {
+          "doc_id": "chunk_chp_2025_vol2_purified_water_master_chp_2025_vol2_water_sec2_conductivity_table_full",
+          "pages": [
+            783
+          ],
+          "physical_volume": "二部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Chemical_Monograph"
+        },
+        {
+          "doc_id": "chunk_chp_2025_vol2_purified_water_chp_2025_vol2_water_sec1_monograph_specs",
+          "pages": [
+            1
+          ],
+          "physical_volume": "四部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Pharmacopoeia_Monograph"
+        },
+        {
+          "doc_id": "chunk_chp_2025_vol2_purified_water_chp_2025_vol2_water_sec2_conductivity_toc_microbial",
+          "pages": [
+            2
+          ],
+          "physical_volume": "四部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Pharmacopoeia_Monograph"
+        }
+      ],
+      "chp": [
+        {
+          "doc_id": "CHP2025-V4-P0995-C01A",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S01",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S02",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S03",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S04",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S05",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        },
+        {
+          "doc_id": "CHP2025-V4-P0995-C01B-S06",
+          "physical_page_1idx": 995,
+          "printed_page": 955,
+          "volume_number": 4,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "纯化水"
+        }
+      ],
+      "note": "Enterprise Vol2 printed 782/783 and a Vol4 pages=[1]/[2] metadata-conflict duplicate; ChP Vol4 physical 995/printed 955. Volume/page authority unresolved."
+    },
+    {
+      "entity": "阿司匹林",
+      "enterprise": [
+        {
+          "doc_id": "chunk_chp_2025_vol2_aspirin_monograph_chp_2025_vol2_aspirin_sec1",
+          "pages": [
+            708
+          ],
+          "physical_volume": "二部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Chemical_Monograph"
+        },
+        {
+          "doc_id": "chunk_chp_2025_vol2_aspirin_monograph_chp_vol2_aspirin_sec1_monograph",
+          "pages": [
+            1
+          ],
+          "physical_volume": "四部",
+          "version": "2025-ChP-Vol2-Official",
+          "category": "Pharmacopoeia_Monograph"
+        }
+      ],
+      "chp": [
+        {
+          "doc_id": "CHP2025-V2-P0756-C01A",
+          "physical_page_1idx": 756,
+          "printed_page": 706,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0756-C01B-S01",
+          "physical_page_1idx": 756,
+          "printed_page": 706,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0756-C01B-S02",
+          "physical_page_1idx": 756,
+          "printed_page": 706,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0756-C01B-S03",
+          "physical_page_1idx": 756,
+          "printed_page": 706,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S01",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S02",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S03",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S04",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S05",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S06",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S07",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S08",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0758-C01B-S01",
+          "physical_page_1idx": 758,
+          "printed_page": 708,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林肠溶胶囊"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0758-C01B-S02",
+          "physical_page_1idx": 758,
+          "printed_page": 708,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林肠溶胶囊"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0758-C01B-S03",
+          "physical_page_1idx": 758,
+          "printed_page": 708,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林肠溶胶囊"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0758-C01B-S04",
+          "physical_page_1idx": 758,
+          "printed_page": 708,
+          "volume_number": 2,
+          "status": "CANDIDATE_ATTRIBUTION",
+          "entity": "阿司匹林肠溶胶囊"
+        }
+      ],
+      "note": "Enterprise printed 708 (physical 758); ChP physical 756/printed 706. Do not collapse."
+    },
+    {
+      "entity": "阿司匹林片",
+      "enterprise": [],
+      "chp": [
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S01",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S02",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S03",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S04",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S05",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S06",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S07",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        },
+        {
+          "doc_id": "CHP2025-V2-P0757-C01-S08",
+          "physical_page_1idx": 757,
+          "printed_page": 707,
+          "volume_number": 2,
+          "status": "VERIFIED_ATTRIBUTION",
+          "entity": "阿司匹林片"
+        }
+      ],
+      "note": "ChP verified P757/printed 707; must not be confused with raw aspirin P756/706."
+    }
+  ],
+  "duplicate_texts": {
+    "included_groups": 155,
+    "included_records": 923,
+    "full_projection_groups": 225,
+    "full_projection_records": 1308,
+    "deduplicated": false
+  },
+  "candidate_status": {
+    "CANDIDATE_ATTRIBUTION": 9482,
+    "VERIFIED_ATTRIBUTION": 2364,
+    "RECOVERED_VERIFIED_ATTRIBUTION": 6,
+    "candidate_authoritative": false
+  },
+  "not_added_fields": [
+    "category",
+    "is_latest",
+    "content_en",
+    "doc_title_en"
+  ],
+  "notes": [
+    "No included ChP doc required an unresolved printed-page mapping.",
+    "The 54 unresolved manifest records were not used by included ChP docs.",
+    "Enterprise page values were preserved; no physical-page derivation was applied to the 20 conflict docs.",
+    "Duplicate records were preserved, not deduplicated."
+  ],
+  "corrections": [
+    {
+      "artifact": "page_and_metadata_conflicts",
+      "corrected_at": "2026-10-25T19:18:54+08:00",
+      "authorization": "OWNER-TASK-2026-10-25-UNIFIED-RUNTIME-CLOSEOUT",
+      "defect": "authority_conflicts[*].chp[*].printed_page held the physical page for ChP entries, inconsistent with the report note and the candidate's printed_pages",
+      "source_evidence": "data/staging/unified_kb_candidate/unified_kb_candidate.json",
+      "entries": [
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01A",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S01",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S02",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S03",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S04",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S05",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "纯化水",
+          "doc_id": "CHP2025-V4-P0995-C01B-S06",
+          "old_printed_page": 995,
+          "corrected_printed_page": 955,
+          "physical_page_1idx": 995,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0756-C01A",
+          "old_printed_page": 756,
+          "corrected_printed_page": 706,
+          "physical_page_1idx": 756,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0756-C01B-S01",
+          "old_printed_page": 756,
+          "corrected_printed_page": 706,
+          "physical_page_1idx": 756,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0756-C01B-S02",
+          "old_printed_page": 756,
+          "corrected_printed_page": 706,
+          "physical_page_1idx": 756,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0756-C01B-S03",
+          "old_printed_page": 756,
+          "corrected_printed_page": 706,
+          "physical_page_1idx": 756,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S01",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S02",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S03",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S04",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S05",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S06",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S07",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0757-C01-S08",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0758-C01B-S01",
+          "old_printed_page": 758,
+          "corrected_printed_page": 708,
+          "physical_page_1idx": 758,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0758-C01B-S02",
+          "old_printed_page": 758,
+          "corrected_printed_page": 708,
+          "physical_page_1idx": 758,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0758-C01B-S03",
+          "old_printed_page": 758,
+          "corrected_printed_page": 708,
+          "physical_page_1idx": 758,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林",
+          "doc_id": "CHP2025-V2-P0758-C01B-S04",
+          "old_printed_page": 758,
+          "corrected_printed_page": 708,
+          "physical_page_1idx": 758,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S01",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S02",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S03",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S04",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S05",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S06",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S07",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        },
+        {
+          "entity": "阿司匹林片",
+          "doc_id": "CHP2025-V2-P0757-C01-S08",
+          "old_printed_page": 757,
+          "corrected_printed_page": 707,
+          "physical_page_1idx": 757,
+          "page_mapping_status": "VERIFIED",
+          "evidence": "unified_kb_candidate.json metadata printed_pages; page_mapping_status=VERIFIED"
+        }
+      ],
+      "note": "Original values are preserved in old_printed_page. build_report.md and output_hashes.sha256 retain the pre-correction artifact hash; this correction and the corrected hash are recorded in phase44 conflict_report_correction.md."
+    }
+  ]
+}

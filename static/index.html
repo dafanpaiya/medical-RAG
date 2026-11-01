@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医药知识问答助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="/static/evidence.js"></script>
+    <style>
+        body { background-color: #f3f4f6; }
+        .chat-container { max-width: 800px; margin: 0 auto; height: calc(100vh - 160px); }
+        .message { padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; line-height: 1.6; }
+        .message.user { background-color: #e5e7eb; border: 1px solid #d1d5db; align-self: flex-end; }
+        .message.ai { background-color: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .markdown p { margin-bottom: 0.75rem; }
+        .markdown p:last-child { margin-bottom: 0; }
+        .markdown ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+        .markdown li { margin-bottom: 0.25rem; }
+        .markdown strong { color: #111827; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col h-screen text-gray-800 font-sans relative">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                <i class="fas fa-notes-medical"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-gray-800">医药知识问答系统</h1>
+                <p class="text-xs text-gray-400">已覆盖部分《中国药典》2025版（ChP 2025）内容</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <div id="mode-badge" onclick="settingsModal.classList.remove('hidden')" class="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full cursor-pointer transition"></div>
+            <button id="settings-btn" class="text-gray-500 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-gray-100" title="系统设置">
+                <i class="fas fa-cog text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Chat Area -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-6" id="chat-window">
+        <div class="chat-container flex flex-col" id="chat-messages">
+            <!-- Welcome Message -->
+            <div class="message ai" id="msg-welcome" data-raw-text="您好！我是医药知识智能问答助手。知识库已覆盖部分《中华人民共和国药典》（ChP 2025年版一部、二部、四部通则与品种标准）内容。请问有什么可以帮您？">
+                <div class="trans-status-bar hidden"></div>
+                <div class="msg-body">
+                    <p class="font-semibold text-gray-900">您好！我是医药知识智能问答助手。</p>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">知识库已覆盖部分<strong>《中华人民共和国药典》（ChP 2025年版一部、二部、四部通则与品种标准）内容。请问有什么可以帮您？</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-gray-100 flex flex-wrap items-center justify-end gap-2 text-xs text-gray-400">
+                    <div class="flex items-center gap-1 text-xs text-gray-500">
+                        <span class="text-gray-400 mr-0.5"><i class="fas fa-language"></i> 翻译:</span>
+                        <button onclick="translateMessage(this, 'msg-welcome', 'English')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇺🇸 EN</button>
+                        <button onclick="translateMessage(this, 'msg-welcome', 'Simplified Chinese')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇨🇳 中文</button>
+                        <button onclick="translateMessage(this, 'msg-welcome', 'Japanese')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇯🇵 日本語</button>
+                        <button onclick="translateMessage(this, 'msg-welcome', 'German')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇩🇪 DE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="bg-white border-t border-gray-200 p-4 shrink-0">
+        <div class="max-w-3xl mx-auto relative">
+            <form id="chat-form" class="flex gap-2 relative shadow-sm border border-gray-300 rounded-xl bg-white focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 overflow-hidden">
+                <textarea
+                    id="user-input"
+                    class="w-full py-3 px-4 resize-none outline-none max-h-32 text-gray-700 bg-transparent"
+                    rows="1"
+                    placeholder="输入问题（如陈皮的内容、讲一下大豆磷脂、我想了解阿司匹林）"
+                    required
+                ></textarea>
+                <button type="submit" id="send-btn" class="self-end mb-1 mr-2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">
+                    <i class="fas fa-paper-plane leading-none"></i>
+                </button>
+            </form>
+            <div class="text-center mt-2 text-xs text-gray-400">
+                AI回答基于知识库生成，可能存在不准确之处
+            </div>
+        </div>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative">
+            <button id="close-settings" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-xl font-bold mb-2 text-gray-800">系统与大模型配置</h2>
+            <div class="bg-blue-50 border border-blue-200 text-blue-800 text-xs rounded-lg p-3 mb-4 leading-relaxed">
+                <i class="fas fa-info-circle mr-1"></i>
+                <strong>模式说明：</strong>配置 API Key 后将启用<strong>大模型增强模式</strong>（支持意图智能理解、无空格英文/错别字容错纠错与深入自然语言合成）。未配置时，系统将通过确定性规则引擎与本地知识库保障基础问答。
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">API Key</label>
+                    <input type="password" id="api-key" placeholder="输入 Gemini API Key 或兼容模型 Key..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">API Base URL (可选)</label>
+                    <input type="text" id="api-base" placeholder="https://generativelanguage.googleapis.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Model (可选)</label>
+                    <input type="text" id="api-model" placeholder="gemini-1.5-flash" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">默认回复语言偏好</label>
+                    <select id="api-lang" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm bg-white">
+                        <option value="auto">自动 (原始法规语言 / Auto)</option>
+                        <option value="English">English (英语)</option>
+                        <option value="Simplified Chinese">简体中文 (Chinese)</option>
+                        <option value="Japanese">日本語 (Japanese)</option>
+                        <option value="German">Deutsch (德语)</option>
+                    </select>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-2">
+                    <button id="save-settings" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-medium">保存配置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatWindow = document.getElementById('chat-window');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Settings Modal
+        const settingsBtn = document.getElementById('settings-btn');
+        const closeSettings = document.getElementById('close-settings');
+        const settingsModal = document.getElementById('settings-modal');
+        const saveSettings = document.getElementById('save-settings');
+        const modeBadge = document.getElementById('mode-badge');
+
+        function updateModeBadge() {
+            const hasKey = !!localStorage.getItem('api_key');
+            if (hasKey) {
+                modeBadge.className = "flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 cursor-pointer hover:bg-blue-100 transition";
+                modeBadge.innerHTML = '<i class="fas fa-sparkles text-blue-500"></i> 大模型智能模式';
+                modeBadge.title = "已配置模型API，点击修改设置";
+            } else {
+                modeBadge.className = "flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 cursor-pointer hover:bg-amber-100 transition";
+                modeBadge.innerHTML = '<i class="fas fa-bolt text-amber-500"></i> 本地快速模式';
+                modeBadge.title = "未配置API Key，点击配置大模型增强功能";
+            }
+        }
+
+        // Load settings
+        document.getElementById('api-key').value = localStorage.getItem('api_key') || '';
+        document.getElementById('api-base').value = localStorage.getItem('api_base') || '';
+        document.getElementById('api-model').value = localStorage.getItem('api_model') || '';
+        document.getElementById('api-lang').value = localStorage.getItem('api_lang') || 'auto';
+        updateModeBadge();
+
+        settingsBtn.addEventListener('click', () => settingsModal.classList.remove('hidden'));
+        closeSettings.addEventListener('click', () => settingsModal.classList.add('hidden'));
+
+        saveSettings.addEventListener('click', () => {
+            localStorage.setItem('api_key', document.getElementById('api-key').value.trim());
+            localStorage.setItem('api_base', document.getElementById('api-base').value.trim());
+            localStorage.setItem('api_model', document.getElementById('api-model').value.trim());
+            localStorage.setItem('api_lang', document.getElementById('api-lang').value);
+            updateModeBadge();
+            settingsModal.classList.add('hidden');
+        });
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight < 128 ? this.scrollHeight : 128) + 'px';
+        });
+
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                chatForm.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        let messageCounter = 0;
+        const msgTranslations = {
+            'msg-welcome': {
+                originalMarkdown: '您好！我是医药知识智能问答助手。知识库已覆盖部分《中华人民共和国药典》（ChP 2025年版一部、二部、四部通则与品种标准）内容。请问有什么可以帮您？',
+                originalHtml: `<p class="font-semibold text-gray-900">您好！我是医药知识智能问答助手。</p><p class="text-gray-600 mt-2 text-sm leading-relaxed">知识库已覆盖部分<strong>《中华人民共和国药典》（ChP 2025年版一部、二部、四部通则与品种标准）内容。请问有什么可以帮您？</p>`,
+                currentLang: 'Simplified Chinese',
+                'Simplified Chinese': {
+                    html: `<p class="font-semibold text-gray-900">您好！我是医药知识智能问答助手。</p><p class="text-gray-600 mt-2 text-sm leading-relaxed">知识库已覆盖部分<strong>《中华人民共和国药典》（ChP 2025年版最新标准，含纯化水、陈皮、阿司匹林、通则0261及指导原则9209）</strong>、<strong>《药品生产质量管理规范》（GMP 无菌与数据完整性）</strong>、中国国。请问有什么可以帮您？</p>`,
+                    mode: 'PRE_TRANSLATED_KB',
+                    notice: '系统欢迎信息（简体中文官方版）'
+                },
+                'English': {
+                    html: `<p class="font-semibold text-gray-900">Hello! I am your professional Medical & Life Sciences Intelligent Q&A Assistant.</p><p class="text-gray-600 mt-2 text-sm leading-relaxed">The knowledge base encompasses official statutory standards from <strong>Pharmacopoeia of the People's Republic of China (ChP 2025 Edition)</strong>, <strong>China GMP (Sterile & Data Integrity)</strong>, China NMPA, U.S. FDA, EU MDR, and ICH (covering Purified Water 3-stage conductivity, Citri Reticulatae Pericarpium, Aspirin, HPLC assays, Bacterial Endotoxins, Sterility testing, Microbial Limits, Dissolution, Cleanroom particle standards, ALCOA+ data integrity, and QMSR). How may I assist you today?</p>`,
+                    mode: 'PRE_TRANSLATED_KB',
+                    notice: 'Pre-translated welcome message in English.'
+                }
+            }
+        };
+
+        function appendMessage(role, htmlContent, msgId = null) {
+            const div = document.createElement('div');
+            div.className = `message ${role} markdown`;
+            if (msgId) div.id = msgId;
+            div.innerHTML = htmlContent;
+            chatMessages.appendChild(div);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            return div;
+        }
+
+        function renderMarkdown(text) {
+            if (!text) return '';
+            let safe = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+
+            // Format Bold & Code
+            safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            safe = safe.replace(/`([^`]+)`/g, '<code class="bg-gray-100 text-blue-600 px-1 py-0.5 rounded text-xs font-mono">$1</code>');
+
+            // Format Paragraphs and list items
+            const paragraphs = safe.split(/\n\n+/);
+            return paragraphs.map(p => {
+                const lines = p.split('\n');
+                const formatted = lines.map(line => {
+                    const trimmed = line.trim();
+                    if (/^\d+\.\s+/.test(trimmed)) {
+                        return `<div class="ml-3 my-0.5"><span class="font-semibold text-gray-900">${trimmed.match(/^\d+\./)[0]}</span> ${trimmed.replace(/^\d+\.\s+/, '')}</div>`;
+                    }
+                    if (/^[-*•]\s+/.test(trimmed)) {
+                        return `<div class="ml-3 my-0.5 flex items-start gap-1.5"><span class="text-blue-500 font-bold">•</span><span>${trimmed.replace(/^[-*•]\s+/, '')}</span></div>`;
+                    }
+                    return line;
+                });
+                return `<div class="mb-2 leading-relaxed">${formatted.join('<br>')}</div>`;
+            }).join('');
+        }
+
+        async function translateMessage(btn, msgId, targetLang) {
+            const msgEl = document.getElementById(msgId);
+            if (!msgEl) return;
+
+            // Cache original content on first translation
+            if (!msgTranslations[msgId]) {
+                const bodyEl = msgEl.querySelector('.msg-body');
+                msgTranslations[msgId] = {
+                    originalMarkdown: msgEl.getAttribute('data-raw-text') || '',
+                    originalHtml: bodyEl ? bodyEl.innerHTML : '',
+                    currentLang: 'original'
+                };
+            }
+
+            // Return cached translation if available
+            if (msgTranslations[msgId][targetLang]) {
+                showTranslatedView(msgId, targetLang, msgTranslations[msgId][targetLang]);
+                return;
+            }
+
+            // If target matches original message language, restore original
+            const isOrigChinese = /[\u4e00-\u9fff]/.test(msgTranslations[msgId].originalMarkdown);
+            if ((targetLang === 'Simplified Chinese' && isOrigChinese) || (targetLang === 'English' && !isOrigChinese)) {
+                restoreOriginalView(msgId);
+                return;
+            }
+
+            const rawText = msgTranslations[msgId].originalMarkdown;
+            if (!rawText) return;
+
+            const originalBtnHtml = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                const response = await fetch('/api/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: rawText,
+                        target_lang: targetLang,
+                        api_key: localStorage.getItem('api_key') || null,
+                        api_base: localStorage.getItem('api_base') || null,
+                        model: localStorage.getItem('api_model') || null
+                    })
+                });
+
+                const data = await response.json();
+                if (data.status === 'SUCCESS') {
+                    const translatedHtml = renderMarkdown(data.translated_text);
+                    msgTranslations[msgId][targetLang] = {
+                        html: translatedHtml,
+                        mode: data.mode,
+                        notice: data.notice || ''
+                    };
+                    showTranslatedView(msgId, targetLang, msgTranslations[msgId][targetLang]);
+                } else {
+                    alert('翻译失败: ' + (data.message || '未知错误'));
+                }
+            } catch (err) {
+                alert('翻译请求失败，请检查网络或后端服务连接。');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+        }
+
+        function showTranslatedView(msgId, targetLang, data) {
+            const msgEl = document.getElementById(msgId);
+            if (!msgEl) return;
+
+            const bodyEl = msgEl.querySelector('.msg-body');
+            const transBar = msgEl.querySelector('.trans-status-bar');
+            if (bodyEl) bodyEl.innerHTML = data.html;
+
+            if (transBar) {
+                transBar.classList.remove('hidden');
+                const noticePill = data.notice ? `
+                    <span class="text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-[11px] leading-tight">
+                        <i class="fas fa-info-circle mr-1"></i>${data.notice}
+                    </span>
+                ` : '';
+
+                transBar.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 p-2 bg-blue-50/70 border border-blue-100 rounded-lg text-xs text-blue-900 mb-2">
+                        <div class="flex items-center gap-1.5 font-medium">
+                            <i class="fas fa-globe text-blue-600"></i>
+                            <span>当前显示视图: <strong>${targetLang}</strong></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            ${noticePill}
+                            <button onclick="restoreOriginalView('${msgId}')" class="text-blue-700 hover:text-blue-900 font-semibold text-xs underline cursor-pointer">
+                                <i class="fas fa-undo-alt mr-1"></i>查看原文
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            msgTranslations[msgId].currentLang = targetLang;
+        }
+
+        function restoreOriginalView(msgId) {
+            const msgEl = document.getElementById(msgId);
+            if (!msgEl || !msgTranslations[msgId]) return;
+
+            const bodyEl = msgEl.querySelector('.msg-body');
+            const transBar = msgEl.querySelector('.trans-status-bar');
+
+            if (bodyEl) bodyEl.innerHTML = msgTranslations[msgId].originalHtml;
+            if (transBar) {
+                transBar.classList.add('hidden');
+                transBar.innerHTML = '';
+            }
+            msgTranslations[msgId].currentLang = 'original';
+        }
+
+        async function escalateQuery(btn, encodedQuery) {
+            const query = decodeURIComponent(encodedQuery);
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 正在转交...';
+            try {
+                const res = await fetch('/api/escalate-to-human', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query, user_notes: "网页端用户直接申请转交人工" })
+                });
+                const data = await res.json();
+                btn.parentElement.innerHTML = `
+                    <div class="mt-2 p-2 bg-green-50 border border-green-200 rounded text-xs text-green-800 flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-600"></i>
+                        <span>已创建专家工单 <strong>${data.ticket_id}</strong>，专家将在人工审核后书面答复。</span>
+                    </div>
+                `;
+            } catch (err) {
+                btn.disabled = false;
+                btn.innerText = '转交失败，点击重试';
+            }
+        }
+
+        async function submitFeedback(btn, encodedQuery, rating, tag = 'HELPFUL') {
+            const query = decodeURIComponent(encodedQuery);
+            const container = btn.closest('.feedback-bar');
+            btn.disabled = true;
+            try {
+                await fetch('/api/feedback', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ query: query, rating: rating, feedback_tag: tag })
+                });
+                if (rating === 'UP') {
+                    container.innerHTML = `<span class="text-green-600 flex items-center gap-1"><i class="fas fa-check"></i> 感谢反馈，已计入系统质量评估指标！</span>`;
+                } else {
+                    container.innerHTML = `<span class="text-orange-600 flex items-center gap-1"><i class="fas fa-check"></i> 已记录改进建议，已进入专家复核队列！</span>`;
+                }
+            } catch(e) {
+                btn.disabled = false;
+            }
+        }
+
+        function showDownFeedback(btn, encodedQuery) {
+            const container = btn.closest('.feedback-bar');
+            container.innerHTML = `
+                <div class="w-full flex flex-wrap items-center gap-1.5 py-1">
+                    <span class="text-gray-500 text-xs">改进原因:</span>
+                    <button onclick="submitFeedback(this, '${encodedQuery}', 'DOWN', 'INACCURATE')" class="px-2 py-0.5 border border-gray-200 rounded text-gray-600 hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-xs transition">内容不准确</button>
+                    <button onclick="submitFeedback(this, '${encodedQuery}', 'DOWN', 'MISSING_DOC')" class="px-2 py-0.5 border border-gray-200 rounded text-gray-600 hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-xs transition">缺少关键条款</button>
+                    <button onclick="submitFeedback(this, '${encodedQuery}', 'DOWN', 'OUTDATED')" class="px-2 py-0.5 border border-gray-200 rounded text-gray-600 hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-xs transition">法规版本滞后</button>
+                </div>
+            `;
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // Add User Message
+            appendMessage('user', text);
+            userInput.value = '';
+            userInput.style.height = 'auto';
+
+            // Add Loading State
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            const loadingId = 'loading-' + Date.now();
+            appendMessage('ai', `<div id="${loadingId}" class="flex items-center gap-2 text-gray-500"><i class="fas fa-circle-notch fa-spin"></i> 正在检索知识库...</div>`);
+
+            try {
+                const response = await fetch('/api/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: text,
+                        api_key: localStorage.getItem('api_key') || null,
+                        api_base: localStorage.getItem('api_base') || null,
+                        model: localStorage.getItem('api_model') || null
+                    })
+                });
+
+                const result = await response.json();
+                document.getElementById(loadingId).parentElement.remove();
+
+                const msgId = 'ai-msg-' + Date.now();
+                let bodyHtml = renderMarkdown(result.answer);
+                // Evidence authority comes only from structured backend fields; see evidence.js.
+                const evidenceBannerHtml = buildEvidenceBanner(result);
+                const citationsHtml = buildCitationsSection(result);
+                const encodedQuery = encodeURIComponent(text);
+
+                let escalationHtml = '';
+                if (result.needs_human_escalation) {
+                    const hasKey = !!localStorage.getItem('api_key');
+                    const llmTip = !hasKey ? `
+                        <div class="mt-3 pt-2.5 border-t border-orange-200/60 flex items-center justify-between text-xs text-orange-800">
+                            <span><i class="fas fa-lightbulb text-amber-500 mr-1"></i> <strong>提示：</strong>当前在本地规则模式下运行。配置大模型可开启拼写纠错与深度语义推理。</span>
+                            <button onclick="settingsModal.classList.remove('hidden')" class="underline font-semibold text-blue-700 hover:text-blue-900 ml-2 whitespace-nowrap">前往配置 ⚙️</button>
+                        </div>
+                    ` : '';
+
+                    escalationHtml = `
+                        <div class="mt-4 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-user-md text-orange-500 mt-1"></i>
+                                <div class="w-full">
+                                    <h4 class="font-bold text-orange-800 text-sm">知识库暂未收录</h4>
+                                    <p class="text-orange-700 text-sm mt-1">该问题在知识库中未找到高确信度内容。建议转交专业团队人工审阅。</p>
+                                    <div class="mt-3">
+                                        <button onclick="escalateQuery(this, '${encodedQuery}')" class="text-sm bg-white border border-orange-300 text-orange-700 px-3 py-1.5 rounded shadow-sm hover:bg-orange-100 transition font-medium">
+                                            <i class="fas fa-share-square mr-1"></i> 转交医学/法规专家核实
+                                        </button>
+                                    </div>
+                                    ${llmTip}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                let feedbackHtml = '';
+                if (result.citations && result.citations.length > 0) {
+                    feedbackHtml = `
+                        <div class="flex items-center gap-2 feedback-bar">
+                            <span>回答是否有帮助？</span>
+                            <button onclick="submitFeedback(this, '${encodedQuery}', 'UP')" class="px-2 py-0.5 rounded hover:bg-gray-100 text-gray-600 hover:text-green-600 transition flex items-center gap-1">
+                                <i class="far fa-thumbs-up"></i> 有帮助
+                            </button>
+                            <button onclick="showDownFeedback(this, '${encodedQuery}')" class="px-2 py-0.5 rounded hover:bg-gray-100 text-gray-600 hover:text-red-600 transition flex items-center gap-1">
+                                <i class="far fa-thumbs-down"></i> 需改进
+                            </button>
+                        </div>
+                    `;
+                }
+
+                const translateToolbar = `
+                    <div class="flex items-center gap-1 text-xs text-gray-500">
+                        <span class="text-gray-400 mr-0.5"><i class="fas fa-language"></i> 翻译:</span>
+                        <button onclick="translateMessage(this, '${msgId}', 'English')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇺🇸 EN</button>
+                        <button onclick="translateMessage(this, '${msgId}', 'Simplified Chinese')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇨🇳 中文</button>
+                        <button onclick="translateMessage(this, '${msgId}', 'Japanese')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇯🇵 日本語</button>
+                        <button onclick="translateMessage(this, '${msgId}', 'German')" class="px-2 py-0.5 rounded border border-gray-200 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition text-xs font-normal">🇩🇪 DE</button>
+                    </div>
+                `;
+
+                const fullMessageHtml = `
+                    <div class="trans-status-bar hidden"></div>
+                    ${evidenceBannerHtml}
+                    <div class="msg-body">${bodyHtml}</div>
+                    ${escalationHtml}
+                    ${citationsHtml}
+                    <div class="mt-3 pt-2 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-400">
+                        ${feedbackHtml || '<div></div>'}
+                        ${translateToolbar}
+                    </div>
+                `;
+
+                const aiMsgEl = appendMessage('ai', fullMessageHtml, msgId);
+                aiMsgEl.setAttribute('data-raw-text', result.answer);
+
+                // Pre-populate translations directly from backend verified knowledge base
+                msgTranslations[msgId] = {
+                    originalMarkdown: result.answer,
+                    originalHtml: bodyHtml,
+                    currentLang: 'original'
+                };
+                if (result.translated_views) {
+                    if (result.translated_views['Simplified Chinese']) {
+                        msgTranslations[msgId]['Simplified Chinese'] = {
+                            html: renderMarkdown(result.translated_views['Simplified Chinese']),
+                            mode: 'PRE_TRANSLATED_KB',
+                            notice: '已加载知识库预存权威双语规范条文（0延迟，无外部网络依赖，法定编号与术语精准）。'
+                        };
+                    }
+                    if (result.translated_views['English']) {
+                        msgTranslations[msgId]['English'] = {
+                            html: renderMarkdown(result.translated_views['English']),
+                            mode: 'PRE_TRANSLATED_KB',
+                            notice: 'Official pre-translated statutory text loaded directly from authoritative knowledge base.'
+                        };
+                    }
+                }
+
+                // Auto-translate if user preferred default language
+                const prefLang = localStorage.getItem('api_lang');
+                if (prefLang && prefLang !== 'auto') {
+                    const hasChinese = /[\u4e00-\u9fff]/.test(result.answer);
+                    if (prefLang === 'English' && hasChinese) {
+                        const enBtn = aiMsgEl.querySelector("button[onclick*='English']");
+                        if (enBtn) translateMessage(enBtn, msgId, 'English');
+                    } else if (prefLang !== 'Simplified Chinese' && hasChinese) {
+                        const targetBtn = aiMsgEl.querySelector(`button[onclick*='${prefLang}']`);
+                        if (targetBtn) translateMessage(targetBtn, msgId, prefLang);
+                    }
+                }
+
+            } catch (err) {
+                document.getElementById(loadingId).parentElement.remove();
+                appendMessage('ai', `<div class="text-red-600"><i class="fas fa-exclamation-triangle"></i> 请求失败，请检查网络连接或后端服务状态。</div>`);
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
