@@ -27,54 +27,6 @@
 
 ## 2. 核心功能与工程特性
 
-## 系统架构
-flowchart TB
-    U["用户提问"] --> API["FastAPI<br/>POST /api/query"]
-
-    subgraph ONLINE["在线问答链路"]
-        API --> SEC["SecureQAEngine"]
-        SEC --> SAFE["输入安全检查<br/>注入规则 / 长度限制"]
-        SAFE --> RET["向量检索<br/>Top-K = 6"]
-        RET --> RERANK["候选重排序<br/>Top-N = 3"]
-        RERANK --> EVIDENCE["证据组织与回答生成"]
-        EVIDENCE --> LLM{"Gemini API Key 可用？"}
-        LLM -->|"是"| GEMINI["Gemini API"]
-        LLM -->|"否"| LOCAL["本地确定性回答回退"]
-        GEMINI --> CHECK["回答与引用检查"]
-        LOCAL --> CHECK
-        CHECK --> RESP["返回答案与引用"]
-    end
-
-    subgraph KNOWLEDGE["知识库与检索数据"]
-        KB1["企业监管知识库"]
-        KB2["药典候选知识库<br/>ChP 2025"]
-        EMB["256 维哈希向量<br/>L2 Normalization"]
-        KB1 --> EMB
-        KB2 --> EMB
-        EMB --> RET
-    end
-
-    subgraph OFFLINE["药典离线数据处理"]
-        PDF["药典 PDF 原文"]
-        OCR["PyMuPDF + RapidOCR<br/>页面 OCR 与缓存"]
-        CHUNK["文本切分与分类<br/>TEXT / TABLE / AUXILIARY / SECTION"]
-        INDEX["候选知识库与向量数据"]
-        PDF --> OCR --> CHUNK --> INDEX
-        INDEX -.-> KB2
-    end
-
-    subgraph SUPPORT["反馈与人工升级"]
-        FB["POST /api/feedback"]
-        METRICS["GET /api/feedback-metrics"]
-        ESC["POST /api/escalate-to-human"]
-        LOG["本地 JSONL 反馈记录"]
-        FB --> LOG
-        LOG --> METRICS
-        ESC --> LOG
-    end
-
-    RESP --> U
-
 ### 2.1 专业知识检索
 
 - 结合向量检索与词法匹配获取相关候选内容。
